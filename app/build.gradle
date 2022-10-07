@@ -73,6 +73,18 @@ android {
             signingConfig = isBuildSigned ? signingConfigs.ci : signingConfigs.debug
         }
 
+        reldebug {
+            debuggable true
+            externalNativeBuild {
+                cmake {
+                    arguments "-DCMAKE_BUILD_TYPE=RELWITHDEBINFO"
+                }
+            }
+            minifyEnabled false
+            shrinkResources false
+            signingConfig = isBuildSigned ? signingConfigs.ci : signingConfigs.debug
+        }
+
         debug {
             debuggable true
             minifyEnabled false
